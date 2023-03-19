@@ -6,7 +6,8 @@
   "author": "Cacio de Castro",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts"
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
+    "prod":"tsc"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
