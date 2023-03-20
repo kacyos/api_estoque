@@ -1,5 +1,3 @@
-
-import '@controllers/ProductsController'
 import express from 'express'
 
 const app = express()
