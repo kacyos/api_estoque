@@ -14,5 +14,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  rules: {}
+  rules: {
+    'no-multiple-empty-lines': ['error', { max: 1 }]
+  }
 }
