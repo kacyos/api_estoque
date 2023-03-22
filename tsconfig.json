@@ -23,10 +23,10 @@
     "baseUrl": ".",
     "paths": {
       "@controllers/*": [
-        "./src/controllers/*"
+        "src/implementations/*"
       ],
       "@models/*": [
-        "./src/models/*"
+        "src/entities/*"
       ],
       "@database/*": [
         "./src/database/*"
