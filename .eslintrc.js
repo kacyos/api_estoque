@@ -15,6 +15,7 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
-    'no-multiple-empty-lines': ['error', { max: 1 }]
+    'no-multiple-empty-lines': ['error', { max: 1 }],
+    semi: ['error', 'always']
   }
-}
+};
