@@ -1,7 +1,5 @@
-
 import express from 'express';
-import 'reflect-metadata';
-import { dataSource } from './database/dataSource';
+
 const app = express();
 
 app.use(express.json());
@@ -12,10 +10,5 @@ app.get('/', (request, response) => {
 });
 
 app.listen(3333, async () => {
-  try {
-    await dataSource.initialize();
-    console.log('Server started on port 3333!');
-  } catch (error) {
-    console.log(error);
-  }
+  console.log('Server started on port 3333!');
 });
