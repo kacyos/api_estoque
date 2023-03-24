@@ -1,3 +1,4 @@
+import { BadRequestError } from 'src/helpers/api-errors';
 import { ISupplierRepository } from '../../repositories/ISupplierRepository';
 
 interface IRequest {
@@ -13,7 +14,7 @@ export class CreateSupplierUseCase {
     const supplierAlreadyExists = await this.supplierRepository.findByName(name);
 
     if (supplierAlreadyExists) {
-      throw new Error('Supplier already exists!');
+      throw new BadRequestError('Supplier already exists.');
     }
 
     await this.supplierRepository.create({
