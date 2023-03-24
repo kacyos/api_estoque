@@ -7,7 +7,7 @@ interface ICreateSupplierDTO {
 
 interface ISupplierRepository {
   create({ name, email }: ICreateSupplierDTO):Promise<Supplier>;
-  findByName(name: string):Promise<Supplier>;
+  findByName(name: string):Promise<Supplier | null>;
   list():Promise<Supplier[]>;
 }
 

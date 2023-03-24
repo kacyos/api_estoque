@@ -24,7 +24,7 @@ export class SupplierRepository implements ISupplierRepository {
     return supplier;
   }
 
-  async findByName (name: string): Promise<any> {
+  async findByName (name: string) {
     const supplier = await client.supplier.findFirst({
       where: {
         name
@@ -34,7 +34,8 @@ export class SupplierRepository implements ISupplierRepository {
     return supplier;
   }
 
-  list (): Promise<any[]> {
-    throw new Error('Method not implemented.');
+  list () {
+    const suppliers = client.supplier.findMany();
+    return suppliers;
   }
 }
