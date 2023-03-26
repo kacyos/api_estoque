@@ -13,7 +13,7 @@ export class SupplierRepository implements ISupplierRepository {
     return SupplierRepository.INSTANCE;
   }
 
-  async create ({ name, email }: ICreateSupplierDTO) {
+  async create ({ name, email = '' }: ICreateSupplierDTO) {
     const supplier = await client.supplier.create({
       data: {
         name,

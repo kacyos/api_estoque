@@ -23,7 +23,7 @@ model Supplier {
 
 model Product {
   id            String   @id @default(uuid())
-  internal_code String   @unique @db.VarChar(255)
+  internal_code Int      @unique
   name          String   @db.VarChar(255)
   quantity      Int      @default(0)
   type          String   @db.VarChar(255)
@@ -35,16 +35,38 @@ model Product {
   supplier_id   String
   supplier      Supplier @relation(fields: [supplier_id], references: [id])
   stocks        Stock[]
+  tamanhos     Sizes[]
 
   @@map("products")
 }
 
-model Stock {
-  id  String  @id @default(uuid())
-  product Product @relation(fields: [product_id], references: [id])
-  product_id String
+model Sizes {
+  id         Int     @id @default(autoincrement())
+  size       String
   quantity Int
-  date DateTime
+  product    Product @relation(fields: [product_id], references: [id])
+  product_id String
+}
+
+model Stock {
+  id         String   @id @default(uuid())
+  date       DateTime
+  quantity   Int
+  product    Product  @relation(fields: [product_id], references: [id])
+  product_id String  
+  store      Store   @relation(fields: [store_id], references: [id])
+  store_id   String
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
+
+model Store {
+  id         String   @id @default(uuid())
+  name       String   @unique @db.VarChar(255)
+  stocks     Stock[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  @@map("stores")
+}
+
+

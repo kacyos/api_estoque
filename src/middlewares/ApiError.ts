@@ -5,7 +5,8 @@ import { ApiError } from 'src/helpers/api-errors';
 export const erroMiddleware = (error:Error & ApiError, _request:Request, response:Response, next: NextFunction) => {
   const statusCode = error.statusCode || 500;
   const message = error.statusCode ? error.message : error.message;
+  const info = error.info || '';
 
-  return response.status(statusCode).json({ message, error: true });
+  return response.status(statusCode).json({ message, error: true, info });
 };
 

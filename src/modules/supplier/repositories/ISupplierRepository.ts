@@ -2,7 +2,7 @@ import { Supplier } from '@prisma/client';
 
 interface ICreateSupplierDTO {
   name: string
-  email: string
+  email?: string
 }
 
 interface ISupplierRepository {
